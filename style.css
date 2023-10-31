@@ -29,7 +29,6 @@
     "top-bar"
     "content-area";
   grid-area: main-area;
-  height: auto;
 }
 
 .dash-top-bar {
@@ -47,7 +46,6 @@
     "content-area-header"
     "content-area-content";
   grid-area: content-area;
-  height: fit-content;
 }
 
 .dash-content-area-header {
@@ -59,6 +57,6 @@
 
 .dash-content-area-content {
   grid-area: content-area-content;
-  height: fit-content;
   padding: 1rem;
+  overflow-y: auto; /* Add a vertical scrollbar when content exceeds the maximum height */
 }
