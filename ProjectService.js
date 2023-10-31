@@ -5,33 +5,50 @@ class ProjectService {
     this.projects = [];
   }
 
-  getProjects() {
-    return this.projects;
+  init() {
+    //Check if there are projects in LocalStorage
+    if (localStorage.getItem("projects")) {
+      this.projects = JSON.parse(localStorage.getItem("projects")).map(
+        (project) =>
+          new Project(
+            project.id,
+            project.name,
+            project.revenue,
+            project.isCompleted
+          )
+      );
+      return Promise.resolve("Project Service Initialized (data in localStorag)");
+    } else {
+      return fetch("projects.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Cannot read json file error " + response.status);
+          }
+          return response.json();
+        })
+        .then((jsonData) => {
+          this.projects = jsonData.projects.map(
+            (project) =>
+              new Project(
+                project.id,
+                project.name,
+                project.revenue,
+                project.isCompleted
+              )
+          );
+          localStorage.setItem("projects", JSON.stringify(jsonData.projects));
+          return "Project Service Initialized";
+        });
+    }
   }
 
-  getProjectList(callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.overrideMimeType("application/json");
-    xhr.open("GET", "projects.json", true);
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        const jsonData = JSON.parse(xhr.responseText);
-        this.projects = jsonData.projects.map((project) => {
-          return new Project(project.id, project.name, project.revenue, project.isCompleted);
-        });
-        if (callback) {
-          callback(this.projects);
-      }
-      }
-    };
-    xhr.send(null);
+  getProjects() {
+    return JSON.parse(localStorage.getItem("projects"));
   }
 
   getTopProjectsByRevenue(count = 3) {
-    return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count); 
+    return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count);
   }
-
 }
-
 
 export default ProjectService;
