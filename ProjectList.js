@@ -8,9 +8,9 @@ class ProjectList {
   }
 
   init() {
-    this.projectService.getProjectList((projectList) => {
-      console.log(projectList);
-      this.displayList(projectList);
+    this.projectService.init().then((status) => {
+      console.log(status);
+      this.displayList(this.projectService.getProjects());
     });
   }
 
@@ -18,14 +18,17 @@ class ProjectList {
     projectTableBody.innerHTML = ``;
     if (projectList.length > 0) {
       projectList.forEach((project) => {
-        projectTableBody.innerHTML += `<tr><td>${project.id}</td><td>${project.name}</td><td>${project.revenue}</td><td>${project.isCompleted == true ? "Completed" : "Ongoing"}</td></tr>`;
+        projectTableBody.innerHTML += `<tr><td>${project.id}</td><td>${
+          project.name
+        }</td><td>${project.revenue}</td><td>${
+          project.isCompleted == true ? "Completed" : "Ongoing"
+        }</td></tr>`;
       });
     } else {
       projectTableBody.innerHTML = `<tr class="text-center"><td colspan="4">No projects found</td></tr>`;
     }
   }
 
-  displayMessage() {}
 }
 
 export default ProjectList;
