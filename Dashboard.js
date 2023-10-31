@@ -32,7 +32,7 @@ class Dashboard {
     <div class="card-body">
     <h6 class="card-title">${project.name}</h6>
     <h6 class="card-subtitle mb-2 text-muted">
-        Project ID: ${project.id}
+        Rs. ${project.revenue} 
     </h6>
     </div>`;
     return card;
