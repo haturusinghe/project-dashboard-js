@@ -17,7 +17,9 @@ class ProjectService {
             project.isCompleted
           )
       );
-      return Promise.resolve("Project Service Initialized (data in localStorag)");
+      return Promise.resolve(
+        "Project Service Initialized (data in localStorag)"
+      );
     } else {
       // Load projects from json file and store them in localStorage
       return fetch("projects.json")
@@ -53,16 +55,27 @@ class ProjectService {
 
   addProject(project) {
     return new Promise((resolve, reject) => {
-      if(this.doesProjectExist(project.id)){
+      if (this.doesProjectExist(project.id)) {
         reject(`Project with id ${project.id} already exists`);
-      }else{
+      } else {
         console.log("adding project", project);
         this.projects.push(project);
         localStorage.setItem("projects", JSON.stringify(this.projects));
         resolve("Project added successfully");
       }
     });
+  }
 
+  deleteProject(id) {
+    if (!this.doesProjectExist(id)) {
+      return "Project doesnt Exist";
+    } else {
+      this.projects = this.projects.filter((project) => {
+        return project.id != id;
+      });
+      localStorage.setItem("projects", JSON.stringify(this.projects));
+      return `Project with ID:${id} deleted!`
+    }
   }
 
   getTopProjectsByRevenue(count = 3) {
