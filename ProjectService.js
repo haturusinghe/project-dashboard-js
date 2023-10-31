@@ -19,6 +19,7 @@ class ProjectService {
       );
       return Promise.resolve("Project Service Initialized (data in localStorag)");
     } else {
+      // Load projects from json file and store them in localStorage
       return fetch("projects.json")
         .then((response) => {
           if (!response.ok) {
@@ -44,6 +45,21 @@ class ProjectService {
 
   getProjects() {
     return JSON.parse(localStorage.getItem("projects"));
+  }
+
+  doesProjectExist(projectId) {
+    return this.projects.some((project) => project.id == projectId);
+  }
+
+  addProject(project) {
+    if(this.doesProjectExist(project.id)){
+      throw new Error(`Project with id ${project.id} already exists`);
+    }else{
+      console.log("adding project", project);
+      this.projects.push(project);
+      localStorage.setItem("projects", JSON.stringify(this.projects));
+    }
+
   }
 
   getTopProjectsByRevenue(count = 3) {
