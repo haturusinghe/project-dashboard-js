@@ -17,7 +17,7 @@ class ProjectService {
       if (xhr.readyState == 4 && xhr.status == 200) {
         const jsonData = JSON.parse(xhr.responseText);
         this.projects = jsonData.projects.map((project) => {
-          return new Project(project.id, project.name);
+          return new Project(project.id, project.name, project.revenue, project.isCompleted);
         });
         if (callback) {
           callback(this.projects);
