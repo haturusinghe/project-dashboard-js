@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const backBtn = document.getElementById('backToProjectListBtn');
     backBtn.addEventListener('click', function() {
-        window.location.href = 'index.html';
+        window.location.href = 'list.html';
     });
 
     form.addEventListener('submit', handleFormSubmit);
