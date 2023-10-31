@@ -1,29 +1,33 @@
-function handleFormSubmit(event) {
-    event.preventDefault(); 
-    
-    const projectId = document.getElementById('projectId').value;
-    const projectName = document.getElementById('projectName').value;
-    const revenue = parseFloat(document.getElementById('revenue').value);
-    const isCompleted = document.getElementById('isCompleted').checked;
+import ProjectService from "./ProjectService.js";
+import Project from "./Project.js";
 
-    addNewProject(projectId, projectName, revenue, isCompleted);
-}
+const projectService = new ProjectService();
 
-function addNewProject(projectId, projectName, revenue, isCompleted) {
-    console.log('Adding new project...');
-    console.log('Project ID:', projectId);
-    console.log('Project Name:', projectName);
-    console.log('Revenue:', revenue);
-    console.log('Completed:', isCompleted);
-}
+const form = document.querySelector("form");
 
-
-const form = document.querySelector('form');
-
-const backBtn = document.getElementById('backToProjectListBtn');
-backBtn.addEventListener('click', () => {
-    window.location.href = 'list.html';
+const backBtn = document.getElementById("backToProjectListBtn");
+backBtn.addEventListener("click", () => {
+  window.location.href = "list.html";
 });
 
-form.addEventListener('submit', handleFormSubmit);
-
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const projectId = document.getElementById("projectId").value;
+    const projectName = document.getElementById("projectName").value;
+    const revenue = parseFloat(document.getElementById("revenue").value);
+    const isCompleted = document.getElementById("isCompleted").checked;
+    const newProject = new Project(
+      projectId,
+      projectName,
+      revenue,
+      isCompleted
+    );
+    // console.log(`added new Project`, newProject);
+    projectService.init().then((status) => {
+        console.log(status);
+        projectService.addProject(newProject);
+      });
+  });
+});
