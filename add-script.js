@@ -1,7 +1,6 @@
 function handleFormSubmit(event) {
     event.preventDefault(); 
     
-
     const projectId = document.getElementById('projectId').value;
     const projectName = document.getElementById('projectName').value;
     const revenue = parseFloat(document.getElementById('revenue').value);
@@ -18,14 +17,13 @@ function addNewProject(projectId, projectName, revenue, isCompleted) {
     console.log('Completed:', isCompleted);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
 
-    const backBtn = document.getElementById('backToProjectListBtn');
-    backBtn.addEventListener('click', function() {
-        window.location.href = 'list.html';
-    });
+const form = document.querySelector('form');
 
-    form.addEventListener('submit', handleFormSubmit);
+const backBtn = document.getElementById('backToProjectListBtn');
+backBtn.addEventListener('click', function() {
+    window.location.href = 'list.html';
 });
+
+form.addEventListener('submit', handleFormSubmit);
 
