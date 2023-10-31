@@ -60,3 +60,7 @@
   padding: 1rem;
   overflow-y: auto; /* Add a vertical scrollbar when content exceeds the maximum height */
 }
+
+#backToDashBtn{
+  height: 50px;
+}
