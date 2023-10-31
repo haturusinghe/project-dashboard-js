@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-
 .dash-container {
   display: grid;
   grid-template-columns: 20% 80%;
@@ -17,6 +11,7 @@ body {
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "sidebar main-area";
+  border: 1px solid black;
   height: 100vh;
 }
 
@@ -27,8 +22,8 @@ body {
 
 .dash-main-area {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 20% 80%;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -44,7 +39,7 @@ body {
 
 .dash-content-area {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: 15% 85%;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -64,4 +59,9 @@ body {
 .dash-content-area-content {
   grid-area: content-area-content;
   padding: 1rem;
+  overflow-y: auto; /* Add a vertical scrollbar when content exceeds the maximum height */
+}
+
+#backToDashBtn{
+  height: 50px;
 }

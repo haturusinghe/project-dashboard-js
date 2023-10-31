@@ -23,7 +23,9 @@
       <div class="dash-content-area">
         <div class="dash-content-area-header">
           <h1>Project List</h1>
-          <button class="btn btn-primary">Go to Dashboard</button>
+          <button class="btn btn-primary" id="backToDashBtn">
+            Go to Dashboard
+          </button>
         </div>
         <div class="dash-content-area-content">
           <div class="text-start mb-3">
@@ -35,13 +37,13 @@
               <tr>
                 <th>Project ID</th>
                 <th>Project Name</th>
-                <th>Start Date</th>
+                <th>Revenue (Rs.)</th>
                 <th>Status</th>
-                <th>Revenue</th>
-                <th></th>
+                <!-- <th>Start Date</th> -->
+                <!-- <th></th> -->
               </tr>
             </thead>
-            <tbody>
+            <tbody id="p-table-body">
               <tr>
                 <td>P1</td>
                 <td>Project A</td>
@@ -108,6 +110,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
