@@ -28,7 +28,7 @@ class ProjectList {
           <td>${project.name}</td>
           <td>${project.revenue}</td>
           <td>${project.isCompleted == true ? "Completed" : "Ongoing"}</td>
-          <td><td><button class="btn btn-danger" id="${project.id}"><i class="fas fa-trash"></i></button></td></td>
+          <td><button class="btn btn-danger" id="${project.id}"><i class="fas fa-trash"></i></button></td>
         </tr>`;
       });
     } else {
