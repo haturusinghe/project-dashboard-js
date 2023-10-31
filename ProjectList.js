@@ -1,6 +1,6 @@
 import ProjectService from "./ProjectService.js";
 
-const projectTableBody = document.getElementById("p-table-body");
+const projectTableBody = document.getElementById("project-table-body");
 
 class ProjectList {
   constructor() {
