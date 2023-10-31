@@ -74,12 +74,20 @@ class ProjectService {
         return project.id != id;
       });
       localStorage.setItem("projects", JSON.stringify(this.projects));
-      return `Project with ID:${id} deleted!`
+      return `Project with ID:${id} deleted!`;
     }
   }
 
   getTopProjectsByRevenue(count = 3) {
     return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count);
+  }
+
+  getCompletedProjects() {
+    return this.projects.filter((project) => {
+      if (project.isCompleted == true) {
+        return project;
+      }
+    });
   }
 }
 

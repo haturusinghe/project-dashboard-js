@@ -14,6 +14,14 @@ class Dashboard {
     this.projectService.init().then((status) => {
       console.log(status);
       this.displayTopProjects(this.projectService.getTopProjectsByRevenue(3));
+      this.alertCompletedProjects(this.projectService.getCompletedProjects());
+    });
+  }
+
+  alertCompletedProjects(projectList) {
+    console.log(projectList);
+    projectList.forEach(project => {
+      alert(`Project with ID${project.id} and Name:${project.name} is Completed!`)
     });
   }
 
