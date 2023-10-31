@@ -21,7 +21,7 @@ function addNewProject(projectId, projectName, revenue, isCompleted) {
 const form = document.querySelector('form');
 
 const backBtn = document.getElementById('backToProjectListBtn');
-backBtn.addEventListener('click', function() {
+backBtn.addEventListener('click', () => {
     window.location.href = 'list.html';
 });
 
