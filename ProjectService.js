@@ -26,6 +26,11 @@ class ProjectService {
     };
     xhr.send(null);
   }
+
+  getTopProjectsByRevenue(count = 3) {
+    return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count); 
+  }
+
 }
 
 
