@@ -23,30 +23,34 @@
       <div class="dash-content-area">
         <div class="dash-content-area-header">
           <h1>Project List</h1>
-          <button class="btn btn-primary" id="backToDashBtn">
+          <button class="btn btn-dark" id="backToDashBtn">
             Go to Dashboard
           </button>
         </div>
         <div class="dash-content-area-content">
           <div class="text-start mb-3">
-            <button class="btn btn-success" id="addBtn">Add New Project</button>
+            <button class="btn btn-light" id="addBtn">Add New Project</button>
           </div>
 
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Project ID</th>
-                <th>Project Name</th>
-                <th>Revenue (Rs.)</th>
-                <th>Status</th>
-                <!-- <th>Start Date</th> -->
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="project-table-body">
-              
-            </tbody>
-          </table>
+          <div class="project-table-background">
+            <table class="table project-table">
+              <thead>
+                <tr>
+                  <th>Project ID</th>
+                  <th>Project Name</th>
+                  <th>Revenue (Rs.)</th>
+                  <th>Status</th>
+                  <th></th>
+                  <!-- <th>Start Date</th> -->
+                </tr>
+              </thead>
+              <tbody id="project-table-body">
+                
+              </tbody>
+            </table>
+          </div>
+
+          
         </div>
       </div>
     </div>
