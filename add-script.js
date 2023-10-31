@@ -24,10 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
       revenue,
       isCompleted
     );
-    // console.log(`added new Project`, newProject);
     projectService.init().then((status) => {
         console.log(status);
-        projectService.addProject(newProject);
+        projectService.addProject(newProject).then((status) => {
+          alert(status);
+          window.location.href = "list.html";
+        }).catch((error) => {
+          alert(error);
+        });
       });
   });
 });
