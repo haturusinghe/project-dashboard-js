@@ -52,13 +52,16 @@ class ProjectService {
   }
 
   addProject(project) {
-    if(this.doesProjectExist(project.id)){
-      throw new Error(`Project with id ${project.id} already exists`);
-    }else{
-      console.log("adding project", project);
-      this.projects.push(project);
-      localStorage.setItem("projects", JSON.stringify(this.projects));
-    }
+    return new Promise((resolve, reject) => {
+      if(this.doesProjectExist(project.id)){
+        reject(`Project with id ${project.id} already exists`);
+      }else{
+        console.log("adding project", project);
+        this.projects.push(project);
+        localStorage.setItem("projects", JSON.stringify(this.projects));
+        resolve("Project added successfully");
+      }
+    });
 
   }
 
