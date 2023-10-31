@@ -15,7 +15,7 @@ const projectList = new ProjectList();
 projectList.init();
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
+  console.log("DOM fully loaded and dpne");
   const deleteButton = document.querySelectorAll(".btn-danger");
   deleteButton.forEach((button) => {
     button.addEventListener("click", (event) => {

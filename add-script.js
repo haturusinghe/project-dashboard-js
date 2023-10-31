@@ -11,7 +11,7 @@ backBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
+  console.log("DOM fully loaded and dpne");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const projectId = document.getElementById("projectId").value;
