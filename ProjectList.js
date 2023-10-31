@@ -21,7 +21,7 @@ class ProjectList {
         projectTableBody.innerHTML += `<tr><td>${project.id}</td><td>${project.name}</td><td>${project.revenue}</td><td>${project.isCompleted == true ? "Completed" : "Ongoing"}</td></tr>`;
       });
     } else {
-      projectTableBody.innerHTML = `<tr><td colspan="2">No projects found</td></tr>`;
+      projectTableBody.innerHTML = `<tr class="text-center"><td colspan="4">No projects found</td></tr>`;
     }
   }
 
