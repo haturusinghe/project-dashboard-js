@@ -21,7 +21,7 @@ function displayList(projectList) {
         <td>${project.revenue}</td>
         <td>${project.isCompleted == true ? "Completed" : "Ongoing"}</td>
         <td><button class="btn btn-danger btn-del-project" 
-                  id="${project.id}"><i class="fas fa-trash"></i></button></td>
+                  id="${project.id}">Delete</button></td>
       </tr>`;
     });
   } else {
