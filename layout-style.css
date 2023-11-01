@@ -1,10 +1,30 @@
 .dash-container {
   display: grid;
-  grid-template-columns: 20% 80%;
-  grid-template-rows: 100%;
   gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas: "sidebar main-area";
+}
+
+/* For small scrreen */
+@media screen and (max-width: 992px) {
+  .dash-container {
+    grid-template-columns: 100%;
+    grid-template-rows: 100% 20%;
+    grid-auto-flow: column;
+    grid-template-areas: 
+    "main-area"
+    "sidebar" 
+    
+    ;
+  }
+}
+
+/* For big scrreen */
+@media screen and (min-width: 992px) {
+  .dash-container {
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100%;
+    grid-auto-flow: row;
+    grid-template-areas: "sidebar main-area";
+  }
 }
 
 .dash-sidebar {
@@ -85,3 +105,4 @@
   display: flex;
 }
 
+/* Responsive */
