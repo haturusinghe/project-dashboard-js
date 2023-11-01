@@ -1,5 +1,5 @@
-import ProjectService from "./scripts/ProjectService.js";
-import Project from "./scripts/Project.js";
+import ProjectService from "./ProjectService.js";
+import Project from "./Project.js";
 
 const projectService = new ProjectService();
 

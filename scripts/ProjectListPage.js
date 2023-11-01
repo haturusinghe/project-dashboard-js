@@ -40,7 +40,7 @@ projectList.init();
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", () => {
-  window.location.href = "add.html";
+  window.location.href = "save.html";
 });
 
 const backBtn = document.getElementById("backToDashBtn");
