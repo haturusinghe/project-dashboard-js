@@ -9,23 +9,24 @@ class ProjectService {
     //Check if there are projects in LocalStorage
     if (localStorage.getItem("projects")) {
       this.projects = JSON.parse(localStorage.getItem("projects")).map(
-        (project) =>
-          new Project(
+        (project) => {
+          return new Project(
             project.id,
             project.name,
             project.revenue,
             project.isCompleted
-          )
+          );
+        }
       );
       return Promise.resolve(
-        "Project Service Initialized (data in localStorag)"
+        "Project Service loaded (data in localStorag)"
       );
     } else {
       //if not Load projects from json file and store them in localStorage
       return fetch("projects.json")
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Cannot read json file error " + response.status);
+            throw new Error("Cannot read json file " + response.status);
           }
           return response.json();
         })
@@ -40,7 +41,9 @@ class ProjectService {
               )
           );
           localStorage.setItem("projects", JSON.stringify(jsonData.projects));
-          return "Project Service Initialized";
+          return "Project Service loaded";
+        }).catch(error => {
+          console.log(error);
         });
     }
   }
