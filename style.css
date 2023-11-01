@@ -1,5 +1,4 @@
 /* RESERT */
-
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +6,12 @@
 }
 
 :root {
-  --primary: #1e90ff;
-  --seconday: #ffffff;
+  --primary: #404258;
+  --secondary: #474E68;
+  --tertiary: #6B728E;
+  --neutral: #ffffff;
 }
+/* https://colorhunt.co/palette/404258474e6850577a6b728e */
 
 .dash-container {
   height: 100vh;
@@ -22,6 +24,10 @@
 .dash-content-area {
   /* background-color: #8ec5fc; */
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+
+.dash-top-bar{
+  background-color: var(--secondary);
 }
 
 .dash-content-area-header {
@@ -44,7 +50,7 @@
 
 .top-project-card {
   width: 100%;
-  background-color: var(--seconday);
+  background-color: var(--neutral);
   background-image: linear-gradient(62deg, #ffffff 0%, #f0f0f0 100%);
 }
 
@@ -58,7 +64,7 @@
   width: 100%;
   border-radius: 1em;
   padding: 1em;
-  background-color: var(--seconday);
+  background-color: var(--neutral);
 }
 
 .widget-header {
@@ -72,6 +78,6 @@
 
 .project-table-background {
   border-radius: 1em !important;
-  background-color: var(--seconday);
+  background-color: var(--neutral);
   padding: 1em;
 }
