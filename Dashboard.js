@@ -12,10 +12,11 @@ class Dashboard {
   init() {
     this.projectService.init().then((status) => {
       console.log(status);
-      this.displayTopProjects(this.projectService.getTopProjectsByRevenue(3));
-      const completedProjects = this.projectService.getCompletedProjects();
-      if(completedProjects.length > 0){
-        this.alertCompletedProjects(completedProjects);
+
+
+      const topProjects = this.projectService.getTopProjectsByRevenue(3);
+      if(topProjects.length > 0){
+        this.displayTopProjects(topProjects)
       }else{
         topProjectsWidgetBody.innerHTML = ``;
         topProjectsWidgetBody.innerHTML = `
@@ -25,6 +26,12 @@ class Dashboard {
           </div>
         </div>`
         ;
+      }
+
+
+      const completedProjects = this.projectService.getCompletedProjects();
+      if(completedProjects.length > 0){
+        this.alertCompletedProjects(completedProjects);
       }
     });
   }
