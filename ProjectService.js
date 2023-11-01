@@ -21,7 +21,7 @@ class ProjectService {
         "Project Service Initialized (data in localStorag)"
       );
     } else {
-      // Load projects from json file and store them in localStorage
+      //if not Load projects from json file and store them in localStorage
       return fetch("projects.json")
         .then((response) => {
           if (!response.ok) {
