@@ -27,9 +27,43 @@
   </head>
 
   <body class="dash-container">
-    <div class="dash-sidebar"></div>
+    <div class="dash-sidebar text-white bg-dark">
+      <div class="user-card"></div>
+
+      <div class="vertical-navigation-bar">
+        <hr id="navDivider">
+        <ul class="nav-list">
+          <li class="nav-list-button"><i class="fas fa-home nav-icon"></i> Dashboard</li>
+          <li class="nav-list-button"><i class="fas fa-folder-open nav-icon"></i> Projects</li>
+          <li class="nav-list-button"><i class="fas fa-users nav-icon"></i> Clients</li>
+          <li class="nav-list-button"><i class="fas fa-chart-bar nav-icon"></i> Reports</li>
+          <li class="nav-list-button"><i class="fas fa-calendar-alt nav-icon"></i> Calendar</li>
+          <li class="nav-list-button"><i class="fas fa-envelope nav-icon"></i> Messages</li>
+          <li class="nav-list-button"><i class="fas fa-users-cog nav-icon"></i> Teams</li>
+          <li class="nav-list-button"><i class="fas fa-cogs nav-icon"></i> Settings</li>
+        </ul>
+        
+      </div>
+    </div>
     <div class="dash-main-area">
-      <div class="dash-top-bar"></div>
+      <div class="dash-top-bar">
+        <nav class="navbar">
+          <div class="container-fluid">
+            
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-light" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
       <div class="dash-content-area">
         <div class="dash-content-area-header">
           <h1>Add New Project</h1>
