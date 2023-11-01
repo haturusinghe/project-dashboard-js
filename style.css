@@ -33,6 +33,7 @@
 .dash-content-area {
   /* background-color: #8ec5fc; */
   background-image: var(--gradient-4);
+  padding: 0.5em;
 }
 
 .dash-top-bar{
