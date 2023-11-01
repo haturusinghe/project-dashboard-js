@@ -13,24 +13,21 @@ class Dashboard {
     this.projectService.init().then((status) => {
       console.log(status);
 
-
       const topProjects = this.projectService.getTopProjectsByRevenue(3);
-      if(topProjects.length > 0){
-        this.displayTopProjects(topProjects)
-      }else{
+      if (topProjects.length > 0) {
+        this.displayTopProjects(topProjects);
+      } else {
         topProjectsWidgetBody.innerHTML = ``;
         topProjectsWidgetBody.innerHTML = `
         <div class="card empty-card">
           <div class="card-body"> 
             <h6>Nothing to display here</h6>
           </div>
-        </div>`
-        ;
+        </div>`;
       }
 
-
       const completedProjects = this.projectService.getCompletedProjects();
-      if(completedProjects.length > 0){
+      if (completedProjects.length > 0) {
         this.alertCompletedProjects(completedProjects);
       }
     });
@@ -71,10 +68,10 @@ class Dashboard {
 const dashboard = new Dashboard();
 dashboard.init();
 
-document.addEventListener('DOMContentLoaded', function() {
-  const backBtn = document.getElementById('backToProjectListBtn');
-  backBtn.addEventListener('click', () => {
-      window.location.href = 'list.html';
+document.addEventListener("DOMContentLoaded", function () {
+  const backBtn = document.getElementById("backToProjectListBtn");
+  backBtn.addEventListener("click", () => {
+    window.location.href = "list.html";
   });
 });
 
