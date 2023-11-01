@@ -16,7 +16,7 @@ projectList.init();
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and dpne");
-  const deleteButton = document.querySelectorAll(".btn-danger");
+  const deleteButton = document.querySelectorAll(".btn-del-project");
   deleteButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       console.log("delete project with id", button.id);

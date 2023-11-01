@@ -14,7 +14,7 @@ class ProjectList {
     });
   }
 
-  deleteProject(id){
+  deleteProject(id) {
     return this.projectService.deleteProject(id);
   }
 
@@ -28,11 +28,12 @@ class ProjectList {
           <td>${project.name}</td>
           <td>${project.revenue}</td>
           <td>${project.isCompleted == true ? "Completed" : "Ongoing"}</td>
-          <td><button class="btn btn-danger" id="${project.id}"><i class="fas fa-trash"></i></button></td>
+          <td><button class="btn btn-danger btn-del-project" 
+                    id="${project.id}"><i class="fas fa-trash"></i></button></td>
         </tr>`;
       });
     } else {
-      projectTableBody.innerHTML = `<tr class="text-center"><td colspan="4">No projects found</td></tr>`;
+      projectTableBody.innerHTML = `<tr class="text-center"><td colspan="5">No projects to Display</td></tr>`;
     }
   }
 }
