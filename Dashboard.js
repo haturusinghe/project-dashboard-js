@@ -16,6 +16,15 @@ class Dashboard {
       const completedProjects = this.projectService.getCompletedProjects();
       if(completedProjects.length > 0){
         this.alertCompletedProjects(completedProjects);
+      }else{
+        topProjectsWidgetBody.innerHTML = ``;
+        topProjectsWidgetBody.innerHTML = `
+        <div class="card empty-card">
+          <div class="card-body"> 
+            <h6>Nothing to display here</h6>
+          </div>
+        </div>`
+        ;
       }
     });
   }
