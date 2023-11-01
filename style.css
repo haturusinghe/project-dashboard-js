@@ -3,24 +3,32 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  list-style-type: none;
+}
+
+ul{
+  padding: 0;
 }
 
 :root {
   --primary: #404258;
-  --secondary: #474E68;
-  --tertiary: #6B728E;
-  --neutral: #ffffff; 
-  --gradient-1 :linear-gradient(0deg, #404258 0%, #474e68 33%, #50577a 66%, #6b728e 100%);
-  --gradient-2 : linear-gradient(62deg, #ffffff 0%, #f0f0f0 100%);
-  --gradient-3 : linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-  --gradient-4 : linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  --gradient-5 : linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-  
+  --secondary: #474e68;
+  --tertiary: #6b728e;
+  --neutral: #ffffff;
+  --gradient-1: linear-gradient(
+    0deg,
+    #404258 0%,
+    #474e68 33%,
+    #50577a 66%,
+    #6b728e 100%
+  );
+  --gradient-2: linear-gradient(62deg, #ffffff 0%, #f0f0f0 100%);
+  --gradient-3: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  --gradient-4: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  --gradient-5: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 /* https://colorhunt.co/palette/404258474e6850577a6b728e */
-
-
 
 .dash-container {
   height: 100vh;
@@ -28,6 +36,7 @@
 
 .dash-sidebar {
   background-color: var(--primary);
+  padding: 0em;
 }
 
 .dash-content-area {
@@ -36,7 +45,7 @@
   padding: 0.5em;
 }
 
-.dash-top-bar{
+.dash-top-bar {
   background-color: var(--secondary);
 }
 
@@ -64,7 +73,7 @@
   background-image: var(--gradient-4);
 }
 
-.empty-card{
+.empty-card {
   width: 100%;
   text-align: center;
 }
@@ -91,4 +100,30 @@
   background-color: var(--neutral);
   border: 1px solid var(--tertiary);
   padding: 1em;
+}
+
+.nav-list{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-list-button {
+  height: 5em;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+
+ul li:hover {
+  background-image: var(--gradient-1);
+  cursor: pointer;
+}
+
+#navDivider{
+  margin: 0;
+}
+
+.nav-icon{
+  padding-right: 0.5em;
 }
