@@ -20,9 +20,12 @@ class Dashboard {
 
   alertCompletedProjects(projectList) {
     console.log(projectList);
-    projectList.forEach(project => {
-      alert(`Project with ID${project.id} and Name:${project.name} is Completed!`)
+    let completedPr = `The following projects have been completed: \n`;
+    projectList.forEach((project) => {
+      // alert(`Project with ID${project.id} and Name:${project.name} is Completed!`)
+      completedPr += `\t Project ID : ${project.id} Name: ${project.name} \n`;
     });
+    alert(completedPr);
   }
 
   displayTopProjects(projectList) {
