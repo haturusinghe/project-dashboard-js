@@ -14,10 +14,6 @@ class ProjectListPage {
     });
   }
 
-  deleteProject(id) {
-    return this.projectService.deleteProject(id);
-  }
-
   displayList(projectList) {
     projectTableBody.innerHTML = ``;
     if (projectList.length > 0) {
@@ -58,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   deleteButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       console.log("delete project with id", button.id);
-      alert(projectList.deleteProject(button.id));
+      alert(projectList.projectService.deleteProject(button.id));
       window.location.href = "list.html";
     });
   });
