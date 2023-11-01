@@ -5,12 +5,10 @@
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "sidebar main-area";
-  height: 100vh;
 }
 
 .dash-sidebar {
   grid-area: sidebar;
-  
 }
 
 .dash-main-area {
@@ -58,8 +56,6 @@
   align-items: center;
 }
 
-
-
 .widget {
   display: grid;
   grid-template-columns: 1fr;
@@ -70,6 +66,11 @@
   grid-template-areas:
     "widget-header"
     "widget-area";
+  height: 100%;
+  width: 100%;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: #ffff;
 }
 
 .widget-header {
@@ -82,5 +83,5 @@
 .widget-area {
   grid-area: widget-area;
   display: flex;
-  gap: 1em;
 }
+
