@@ -82,7 +82,10 @@ class ProjectService {
   }
 
   getTopProjectsByRevenue(count = 3) {
-    return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count);
+    return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count).filter(project => {
+      // Check to see if it has revenue more than 0
+      return project.revenue > 0
+    });
   }
 
   getCompletedProjects() {
