@@ -6,7 +6,6 @@ const topProjectsWidgetBody = document.getElementById(
 
 class Dashboard {
   constructor() {
-    this.topProjects = [];
     this.projectService = new ProjectService();
   }
 
@@ -14,7 +13,10 @@ class Dashboard {
     this.projectService.init().then((status) => {
       console.log(status);
       this.displayTopProjects(this.projectService.getTopProjectsByRevenue(3));
-      this.alertCompletedProjects(this.projectService.getCompletedProjects());
+      const completedProjects = this.projectService.getCompletedProjects();
+      if(completedProjects.length > 0){
+        this.alertCompletedProjects(completedProjects);
+      }
     });
   }
 
@@ -32,13 +34,13 @@ class Dashboard {
     topProjectsWidgetBody.innerHTML = ``;
     console.log(projectList);
     projectList.forEach((element) => {
-      topProjectsWidgetBody.appendChild(this.createCard(element));
+      topProjectsWidgetBody.appendChild(this.createTopProjectCard(element));
     });
   }
 
-  createCard(project) {
+  createTopProjectCard(project) {
     const card = document.createElement("div");
-    card.className = "card sample-card";
+    card.className = "card top-project-card";
     card.innerHTML = `
     <div class="card-body">
     <h6 class="card-title">${project.name}</h6>
