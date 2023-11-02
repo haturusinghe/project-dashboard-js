@@ -2,7 +2,6 @@ import ProjectService from "./ProjectService.js";
 import Project from "./Project.js";
 
 const projectService = new ProjectService();
-
 const form = document.querySelector("form");
 
 const backBtn = document.getElementById("backToProjectListBtn");
@@ -20,15 +19,8 @@ form.addEventListener("submit", (event) => {
 
   projectService.init();
 
-  projectService
-    .addProject(newProject)
-    .then((status) => {
-      alert(status);
-      
-    })
-    .catch((error) => {
-      alert(error);
-    });
+  projectService.addProject(newProject).then(status => alert(status))
+    .catch(error => alert(error));
 
     window.location.href = "list.html";
 });

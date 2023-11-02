@@ -70,30 +70,23 @@ class ProjectService {
   }
 
   deleteProject(id) {
-    if (!this.doesProjectExist(id)) {
+    if (!this.doesProjectExist(id)) 
       return "Project doesnt Exist";
-    } else {
-      this.projects = this.projects.filter((project) => {
-        return project.id != id;
-      });
+    else {
+      this.projects = this.projects.filter(project => project.id != id);
       localStorage.setItem("projects", JSON.stringify(this.projects));
       return `Project with ID:${id} deleted!`;
     }
   }
 
   getTopProjectsByRevenue(count = 3) {
-    return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count).filter(project => {
-      // Check to see if it has revenue more than 0
-      return project.revenue > 0
-    });
+    const sortedProjects = this.projects.sort((a, b) => b.reject - a.revenue);
+    // Check to see if it has revenue more than 0
+    return sortedProjects.slice(0, count).filter(project => project.revenue > 0 );
   }
 
   getCompletedProjects() {
-    return this.projects.filter((project) => {
-      if (project.isCompleted == true) {
-        return project;
-      }
-    });
+    return this.projects.filter(project => project.isCompleted === true);
   }
 }
 
