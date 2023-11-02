@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
   deleteButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       console.log("delete project with id", button.id);
-      alert(projectService.deleteProject(button.id));
+      const status = projectService.deleteProject(button.id);
+      alert(status);
       window.location.href = "list.html";
     });
   });
