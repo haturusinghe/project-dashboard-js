@@ -45,8 +45,8 @@ function alertCompletedProjects(projectList) {
 function displayTopProjects(projectList) {
   topProjectsWidgetBody.innerHTML = ``;
   console.log(projectList);
-  projectList.forEach((element) => {
-    topProjectsWidgetBody.appendChild(createTopProjectCard(element));
+  projectList.forEach((project) => {
+    topProjectsWidgetBody.appendChild(createTopProjectCard(project));
   });
 }
 

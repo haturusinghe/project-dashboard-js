@@ -1,6 +1,8 @@
 import ProjectService from "./ProjectService.js";
 
 const projectTableBody = document.getElementById("project-table-body");
+
+
 const projectService = new ProjectService();
 
 function init() {
