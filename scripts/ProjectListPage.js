@@ -6,10 +6,8 @@ const projectTableBody = document.getElementById("project-table-body");
 const projectService = new ProjectService();
 
 function init() {
-  projectService.init().then((status) => {
-    console.log(status);
-    displayList(projectService.getProjects());
-  });
+  projectService.init()
+  displayList(projectService.getProjects());
 }
 
 function displayList(projectList) {
