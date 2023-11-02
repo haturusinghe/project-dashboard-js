@@ -1,4 +1,4 @@
-/* RESERT */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +21,7 @@
 /* https://colorhunt.co/palette/404258474e6850577a6b728e */
 
 
+/* COMMON STYLES */
 
 .dash-container {
   height: 100vh;
@@ -46,88 +47,6 @@
 
 .dash-content-area-content {
   padding: 1rem;
-}
-
-#backToDashBtn,
-#backToProjectListBtn {
-  height: 50px;
-}
-
-.widget-row {
-  height: 20em;
-  padding: 1em;
-}
-
-.top-project-card {
-  width: 100%;
-  background-color: var(--neutral);
-  background-image: var(--gradient-4);
-}
-
-.empty-card{
-  width: 100%;
-  text-align: center;
-}
-
-.widget {
-  height: 100%;
-  width: 100%;
-  border-radius: 1em;
-  padding: 1em;
-  background-color: var(--tertiary);
-}
-
-.widget-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em;
-}
-
-.widget-area {
-  padding: 1em;
-  gap: 1em;
-  margin-top: 1em;
-}
-
-.project-table-background {
-  border-radius: 1em !important;
-  background-color: var(--neutral);
-  border: 1px solid var(--tertiary);
-  padding: 1em;
-}
-
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-
-@media screen and (max-width: 600px) {
-  table {
-    min-width: 100%;
-  }
-
-
-  thead {
-    display: none;
-  }
-
-
-  tr {
-    display: block;
-    margin-bottom: 15px;
-  }
-
 }
 
 .btn {
@@ -166,10 +85,6 @@ th, td {
   border: 1px solid #343434;
 }
 
-.option-holder{
-  margin: 1em 0 1em 0;
-}
-
 .card {
   position: relative;
   display: flex;
@@ -206,7 +121,85 @@ th, td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+#backToDashBtn,
+#backToProjectListBtn {
+  height: 50px;
+}
 
+/* DASHBOARD ELEMENT STYLES */
+
+.widget-row {
+  height: 20em;
+  padding: 1em;
+}
+
+.top-project-card {
+  width: 100%;
+  background-color: var(--neutral);
+  background-image: var(--gradient-4);
+  min-height: 7em;
+}
+
+.empty-card{
+  width: 100%;
+  text-align: center;
+}
+
+.widget {
+  height: 100%;
+  width: 100%;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: var(--tertiary);
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.widget-area {
+  padding: 1em;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+/* PROJECT LIST PAGE ELEMENTS */
+
+.project-table-background {
+  border-radius: 1em !important;
+  background-color: var(--neutral);
+  border: 1px solid var(--tertiary);
+  padding: 1em;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+.text-center{
+  text-align: center; 
+}
+
+.option-holder{
+  margin: 1em 0 1em 0;
+}
+
+
+/* SAVE PAGE ELEMENTS */
 
 .form-control {
   display: block;
@@ -222,6 +215,3 @@ th, td {
   margin: 1rem 0 1rem 0;
 }
 
-.text-center{
-  text-align: center !important; 
-}
