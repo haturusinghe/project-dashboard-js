@@ -102,12 +102,12 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 
 th, td {
   padding: 12px;
-  text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
@@ -220,4 +220,8 @@ th, td {
 
 .form-check-input{
   margin: 1rem 0 1rem 0;
+}
+
+.text-center{
+  text-align: center !important; 
 }
