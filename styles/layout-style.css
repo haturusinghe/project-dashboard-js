@@ -86,8 +86,6 @@
   grid-template-areas:
     "widget-header"
     "widget-area";
-  height: 100%;
-  width: 100%;
   border-radius: 1em;
   padding: 1em;
   background-color: #ffff;

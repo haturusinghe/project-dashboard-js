@@ -1,4 +1,4 @@
-/* RESERT */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +21,7 @@
 /* https://colorhunt.co/palette/404258474e6850577a6b728e */
 
 
+/* COMMON STYLES */
 
 .dash-container {
   height: 100vh;
@@ -48,10 +49,81 @@
   padding: 1rem;
 }
 
+.btn {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-danger{
+  color: #fff;
+  background-color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+.btn-light{
+  color: #0000;
+  background-color: #ebedee;
+  border: 1px solid #ebedee;
+}
+
+.btn-dark{
+  color: #fff;
+  background-color: #343434;
+  border: 1px solid #343434;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  height: fit-content;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.card-subtitle {
+  margin-top: -0.375rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 #backToDashBtn,
 #backToProjectListBtn {
   height: 50px;
 }
+
+/* DASHBOARD ELEMENT STYLES */
 
 .widget-row {
   height: 20em;
@@ -62,6 +134,7 @@
   width: 100%;
   background-color: var(--neutral);
   background-image: var(--gradient-4);
+  min-height: 7em;
 }
 
 .empty-card{
@@ -78,13 +151,19 @@
 }
 
 .widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1em;
 }
 
 .widget-area {
   padding: 1em;
   gap: 1em;
+  margin-top: 1em;
 }
+
+/* PROJECT LIST PAGE ELEMENTS */
 
 .project-table-background {
   border-radius: 1em !important;
@@ -92,3 +171,44 @@
   border: 1px solid var(--tertiary);
   padding: 1em;
 }
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+.text-center{
+  text-align: center; 
+}
+
+.option-holder{
+  margin: 1em 0 1em 0;
+}
+
+
+/* SAVE PAGE ELEMENTS */
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-family: 1rem;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  margin: 1em 0 1em 0;
+}
+
+.form-check-input{
+  margin: 1rem 0 1rem 0;
+}
+

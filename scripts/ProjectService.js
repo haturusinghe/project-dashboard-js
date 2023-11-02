@@ -49,7 +49,7 @@ class ProjectService {
   }
 
   getProjects() {
-    return JSON.parse(localStorage.getItem("projects"));
+    return this.projects;
   }
 
   doesProjectExist(projectId) {
