@@ -47,10 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteButton = document.querySelectorAll(".btn-del-project");
   deleteButton.forEach((button) => {
     button.addEventListener("click", (event) => {
-      console.log("delete project with id", button.id);
-      const status = projectService.deleteProject(button.id);
-      alert(status);
-      window.location.href = "list.html";
+      if(confirm('Are you sure to delete this Project?')){
+        console.log("delete project with id", button.id);
+        const status = projectService.deleteProject(button.id);
+        alert(status);
+        window.location.href = "list.html";
+      }
     });
   });
 });
