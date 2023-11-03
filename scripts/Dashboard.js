@@ -1,5 +1,6 @@
 import ProjectService from "./ProjectService.js";
 
+const backBtn = document.getElementById("backToProjectListBtn");
 const topProjectsWidgetBody = document.getElementById(
   "top-projects-widget-body"
 );
@@ -57,7 +58,6 @@ function createTopProjectCard(project) {
   return card;
 }
 
-const backBtn = document.getElementById("backToProjectListBtn");
 backBtn.addEventListener("click", () => {
   window.location.href = "list.html";
 });

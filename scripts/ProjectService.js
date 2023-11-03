@@ -5,46 +5,42 @@ class ProjectService {
     this.projects = [];
   }
 
-  init() {
-    //Check if there are projects in LocalStorage
-    if (localStorage.getItem("projects")) {
-      this.projects = JSON.parse(localStorage.getItem("projects")).map(
-        (project) => {
+  async init() {
+    // Check if there are projects in LocalStorage
+    const localProjects = localStorage.getItem("projects");
+
+    if (localProjects) {
+      this.projects = JSON.parse(localProjects).map((project) => {
+        return new Project(
+          project.id,
+          project.name,
+          project.revenue,
+          project.isCompleted
+        );
+      });
+      return "Project Service loaded (data in localStorage)";
+    } else {
+      try {
+        // Load projects from json file and store them in localStorage
+        const response = await fetch("projects.json");
+        if (!response.ok) {
+          throw new Error("Cannot read json file " + response.status);
+        }
+        const jsonData = await response.json();
+        this.projects = jsonData.projects.map((project) => {
           return new Project(
             project.id,
             project.name,
             project.revenue,
             project.isCompleted
           );
-        }
-      );
-      return Promise.resolve(
-        "Project Service loaded (data in localStorag)"
-      );
-    } else {
-      //if not Load projects from json file and store them in localStorage
-      return fetch("projects.json")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Cannot read json file " + response.status);
-          }
-          return response.json();
-        })
-        .then((jsonData) => {
-          this.projects = jsonData.projects.map(
-            (project) =>
-              new Project(
-                project.id,
-                project.name,
-                project.revenue,
-                project.isCompleted
-              )
-          );
-          localStorage.setItem("projects", JSON.stringify(jsonData.projects));
-          return "Project Service loaded";
-        }).catch(error => {
-          console.log(error);
         });
+        localStorage.setItem("projects", JSON.stringify(jsonData.projects));
+        return "Project Service loaded";
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to load projects: " + error.message);
+      }
     }
   }
 
@@ -57,16 +53,15 @@ class ProjectService {
   }
 
   addProject(project) {
-    return new Promise((resolve, reject) => {
-      if (this.doesProjectExist(project.id)) {
-        reject(`Project with id ${project.id} already exists`);
-      } else {
-        console.log("adding project", project);
-        this.projects.push(project);
-        localStorage.setItem("projects", JSON.stringify(this.projects));
-        resolve("Project added successfully");
-      }
-    });
+    if (this.doesProjectExist(project.id)) {
+      console.error(`Project with id ${project.id} already exists`);
+      return `Project with id ${project.id} already exists`;
+    } else {
+      console.log("Adding project", project);
+      this.projects.push(project);
+      localStorage.setItem("projects", JSON.stringify(this.projects));
+      return "Project added successfully";
+    }
   }
 
   deleteProject(id) {
@@ -82,10 +77,13 @@ class ProjectService {
   }
 
   getTopProjectsByRevenue(count = 3) {
-    return this.projects.sort((a, b) => b.revenue - a.revenue).slice(0, count).filter(project => {
-      // Check to see if it has revenue more than 0
-      return project.revenue > 0
-    });
+    return this.projects
+      .sort((a, b) => b.revenue - a.revenue)
+      .slice(0, count)
+      .filter((project) => {
+        // Check to see if it has revenue more than 0
+        return project.revenue > 0;
+      });
   }
 
   getCompletedProjects() {
