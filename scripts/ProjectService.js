@@ -5,47 +5,34 @@ class ProjectService {
     this.projects = [];
   }
 
-  init() {
-    //Check if there are projects in LocalStorage
-    if (localStorage.getItem("projects")) {
-      this.projects = JSON.parse(localStorage.getItem("projects")).map(
-        (project) => {
-          return new Project(
-            project.id,
-            project.name,
-            project.revenue,
-            project.isCompleted
-          );
-        }
-      );
-      return Promise.resolve(
-        "Project Service loaded (data in localStorag)"
-      );
-    } else {
-      //if not Load projects from json file and store them in localStorage
-      return fetch("projects.json")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Cannot read json file " + response.status);
-          }
-          return response.json();
-        })
-        .then((jsonData) => {
-          this.projects = jsonData.projects.map(
-            (project) =>
-              new Project(
-                project.id,
-                project.name,
-                project.revenue,
-                project.isCompleted
-              )
-          );
-          localStorage.setItem("projects", JSON.stringify(jsonData.projects));
-          return "Project Service loaded";
-        }).catch(error => {
-          console.log(error);
-        });
+  _postProjects(projects) {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  }
+
+  async _fetchProjects() {
+    try {
+      let projects = localStorage.getItem("projects");
+      if (projects) {
+        const parsedProjects = JSON.parse(projects);
+        return parsedProjects
+          .map(({id, name, revenue, isCompleted}) => new Project(id, name, revenue, isCompleted));
+      }
+
+      const res = await fetch("projects.json");
+      const data = await res.json();
+      if (data) {
+        this._postProjects(data.projects);
+        return data
+          .projects.map(({id, name, revenue, isCompleted}) => new Project(id, name, revenue, isCompleted));
+      }
     }
+    catch(ex) {
+      console.log(ex);
+    }
+  }
+
+  async init() {
+    this.projects = await this._fetchProjects();
   }
 
   getProjects() {
@@ -63,23 +50,23 @@ class ProjectService {
       } else {
         console.log("adding project", project);
         this.projects.push(project);
-        localStorage.setItem("projects", JSON.stringify(this.projects));
+        this._postProjects(this.projects);
         resolve("Project added successfully");
       }
     });
   }
 
   deleteProject(id) {
-    if (!this.doesProjectExist(id)) 
-      return "Project doesnt Exist";
+    if (!this.doesProjectExist(id)) return "Project doesnt Exist";
     else {
       this.projects = this.projects.filter(project => project.id != id);
-      localStorage.setItem("projects", JSON.stringify(this.projects));
+      this._postProjects(this.projects);
       return `Project with ID:${id} deleted!`;
     }
   }
 
   getTopProjectsByRevenue(count = 3) {
+    console.log(this.projects);
     const sortedProjects = this.projects.sort((a, b) => b.reject - a.revenue);
     // Check to see if it has revenue more than 0
     return sortedProjects.slice(0, count).filter(project => project.revenue > 0 );

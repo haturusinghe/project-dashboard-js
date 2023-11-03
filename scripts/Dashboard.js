@@ -7,25 +7,22 @@ const topProjectsWidgetBody = document.getElementById(
 const projectService = new ProjectService();
 
 
-function init() {
-  projectService.init();
+async function init() {
+  await projectService.init();
 
   const topProjects = projectService.getTopProjectsByRevenue(3);
-    if (topProjects.length > 0) {
-      displayTopProjects(topProjects);
-    } else {
-      topProjectsWidgetBody.innerHTML = `
+  if (topProjects.length > 0) displayTopProjects(topProjects)
+  else {
+    topProjectsWidgetBody.innerHTML = `
       <div class="card empty-card">
         <div class="card-body"> 
           <h6>Nothing to display here</h6>
         </div>
       </div>`;
-    }
+  }
 
-    const completedProjects = projectService.getCompletedProjects();
-    if (completedProjects.length > 0) {
-      alertCompletedProjects(completedProjects);
-    }
+  const completedProjects = projectService.getCompletedProjects();
+  if (completedProjects.length > 0) alertCompletedProjects(completedProjects);
 }
 
 function alertCompletedProjects(projectList) {
