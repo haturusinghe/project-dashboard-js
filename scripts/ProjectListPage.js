@@ -29,7 +29,6 @@ function displayList(projectList) {
   }
 }
 
-init()
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", () => {
@@ -53,3 +52,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+init()
