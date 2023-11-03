@@ -11,13 +11,9 @@ backBtn.addEventListener("click", () => {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const projectId = document.getElementById("projectId").value;
   const projectName = document.getElementById("projectName").value;
   const revenue = parseFloat(document.getElementById("revenue").value);
-  const isCompleted = document.getElementById("isCompleted").checked;
-  const newProject = new Project(projectId, projectName, revenue, isCompleted);
-
-  projectService.init();
+  const newProject = new Project(0, projectName, revenue);
 
   projectService.addProject(newProject).then(status => alert(status))
     .catch(error => alert(error));

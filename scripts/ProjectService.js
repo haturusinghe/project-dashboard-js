@@ -3,6 +3,7 @@ import Project from "./Project.js";
 class ProjectService {
   constructor() {
     this.projects = [];
+    this.init();
   }
 
   _postProjects(projects) {
@@ -50,6 +51,7 @@ class ProjectService {
       } else {
         console.log("adding project", project);
         this.projects.push(project);
+
         this._postProjects(this.projects);
         resolve("Project added successfully");
       }
@@ -66,10 +68,11 @@ class ProjectService {
   }
 
   getTopProjectsByRevenue(count = 3) {
-    console.log(this.projects);
     const sortedProjects = this.projects.sort((a, b) => b.reject - a.revenue);
     // Check to see if it has revenue more than 0
-    return sortedProjects.slice(0, count).filter(project => project.revenue > 0 );
+    const top = sortedProjects.slice(0, count).filter(project => project.revenue > 0 );
+    console.log("top", this.projects);
+    return top;
   }
 
   getCompletedProjects() {
