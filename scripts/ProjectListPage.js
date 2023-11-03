@@ -2,11 +2,13 @@ import ProjectService from "./ProjectService.js";
 
 const projectTableBody = document.getElementById("project-table-body");
 
-
 const projectService = new ProjectService();
 
 function init() {
   projectService.init()
+  /* .then((status) => {
+    displayList(projectService.getProjects());
+  }); */
   displayList(projectService.getProjects());
 }
 
@@ -28,7 +30,6 @@ function displayList(projectList) {
     projectTableBody.innerHTML = `<tr class="text-center"><td colspan="5">No projects to Display</td></tr>`;
   }
 }
-
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", () => {
@@ -52,4 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-init()
+init();
