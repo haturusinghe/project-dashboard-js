@@ -7,9 +7,10 @@ const topProjectsWidgetBody = document.getElementById(
 
 const projectService = new ProjectService();
 
-function init() {
-  projectService.init();
-
+async function init() {
+  const initStatus = await projectService.init();
+  console.log(initStatus);
+  
   const topProjects = projectService.getTopProjectsByRevenue(3);
   displayTopProjects(topProjects);
 

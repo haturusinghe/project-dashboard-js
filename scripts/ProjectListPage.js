@@ -4,11 +4,10 @@ const projectTableBody = document.getElementById("project-table-body");
 
 const projectService = new ProjectService();
 
-function init() {
-  projectService.init()
-  /* .then((status) => {
-    displayList(projectService.getProjects());
-  }); */
+
+async function init() {
+  const initStatus = await projectService.init();
+  console.log(initStatus);
   displayList(projectService.getProjects());
 }
 

@@ -6,8 +6,9 @@ const backBtn = document.getElementById("backToProjectListBtn");
 
 const projectService = new ProjectService();
 
-function init() {
-  projectService.init();
+async function init() {
+  const initStatus = await projectService.init();
+  console.log(initStatus);
 }
 
 backBtn.addEventListener("click", () => {
