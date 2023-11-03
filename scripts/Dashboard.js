@@ -4,21 +4,16 @@ const topProjectsWidgetBody = document.getElementById(
   "top-projects-widget-body"
 );
 
-const projectService = new ProjectService();
-
-
 async function init() {
+
+  const projectService = new ProjectService();
   await projectService.init();
 
   const topProjects = projectService.getTopProjectsByRevenue(3);
-  if (topProjects.length > 0) displayTopProjects(topProjects)
-  else {
-    topProjectsWidgetBody.innerHTML = `
-      <div class="card empty-card">
-        <div class="card-body"> 
-          <h6>Nothing to display here</h6>
-        </div>
-      </div>`;
+  if (topProjects.length > 0) {
+    displayTopProjects(topProjects)
+  }else {
+    displayMessage('No Top Performed Projects')
   }
 
   const completedProjects = projectService.getCompletedProjects();
@@ -41,6 +36,15 @@ function displayTopProjects(projectList) {
   projectList.forEach((project) => {
     topProjectsWidgetBody.appendChild(createTopProjectCard(project));
   });
+}
+
+function displayMessage(message) {
+  topProjectsWidgetBody.innerHTML = `
+  <div class="card empty-card">
+    <div class="card-body"> 
+      <h6>${message}</h6>
+    </div>
+  </div>`;
 }
 
 function createTopProjectCard(project) {
