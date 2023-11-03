@@ -1,8 +1,6 @@
 import ProjectService from "./ProjectService.js";
 
-const topProjectsWidgetBody = document.getElementById(
-  "top-projects-widget-body"
-);
+const topProjectsWidgetBody = document.getElementById("top-projects-widget-body");
 
 const projectService = new ProjectService();
 

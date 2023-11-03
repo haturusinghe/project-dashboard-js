@@ -51,7 +51,7 @@ class ProjectService {
   getProjects() {
     return this.projects;
   }
-
+ 
   doesProjectExist(projectId) {
     return this.projects.some((project) => project.id == projectId);
   }
@@ -75,7 +75,7 @@ class ProjectService {
     } else {
       this.projects = this.projects.filter((project) => {
         return project.id != id;
-      });
+      }); 
       localStorage.setItem("projects", JSON.stringify(this.projects));
       return `Project with ID:${id} deleted!`;
     }

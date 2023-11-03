@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const status = projectService.deleteProject(button.id);
         alert(status);
         window.location.href = "list.html";
-
       }
     });
   });
